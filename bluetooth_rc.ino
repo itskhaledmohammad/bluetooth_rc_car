@@ -1,32 +1,43 @@
+int state = 0;
 void setup()
 {
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
-  pinMode(10, OUTPUT);
-  pinMode(11, OUTPUT);
+  Serial.begin(9600);
+  for(int i = 8; i <= 11; i++){
+    pinMode(i, OUTPUT);
+  }
 }
 void loop()
 {
-  /*
   if(Serial.available() > 0)
   {
     state = Serial.read();
-    if(state == 70)
+    if(state == 'F')
     {
-      digitalWrite(8, HIGH);   
+      digitalWrite(8, HIGH);
+      digitalWrite(9, LOW);
     }
-    else if(state == 66)
+    else if(state == 'B')
     {
-      digitalWrite(8, LOW);  
+      digitalWrite(10, HIGH);
+      digitalWrite(11, LOW);
     }
-    if(state != 83)
+    else if(state != 'L')
     {
-          Serial.println(state);  
+            digitalWrite(8, LOW);
+            digitalWrite(9, LOW);
+            digitalWrite(10, LOW);
+            digitalWrite(11, LOW);   
     }
-  }*/
+    if(state != 'S')
+    {
+      Serial.println(state);  
+    }
+  }
+  /*
   digitalWrite(8, HIGH);
   digitalWrite(9, LOW);
   digitalWrite(10, HIGH);
-  digitalWrite(11, LOW);  
+  digitalWrite(11, LOW); 
+  */ 
 
 }
