@@ -1,4 +1,21 @@
 int state = 0;
+int motorPins[] = {8, 9, 10 ,11};
+void forward()
+{
+}
+void backward()
+{
+}
+void left()
+{
+}
+void right()
+{
+}
+void headLight(int switchState)
+{   
+}
+
 void setup()
 {
   Serial.begin(9600);
@@ -13,20 +30,20 @@ void loop()
     state = Serial.read();
     if(state == 'F')
     {
-      digitalWrite(8, HIGH);
-      digitalWrite(9, LOW);
+      digitalWrite(motorPins[0], HIGH);
+      digitalWrite(motorPins[1], LOW);
     }
     else if(state == 'B')
     {
-      digitalWrite(10, HIGH);
-      digitalWrite(11, LOW);
+      digitalWrite(motorPins[2], HIGH);
+      digitalWrite(motorPins[3], LOW);
     }
     else if(state != 'L')
     {
-            digitalWrite(8, LOW);
-            digitalWrite(9, LOW);
-            digitalWrite(10, LOW);
-            digitalWrite(11, LOW);   
+      for(int i = 0; i < 4; i++)
+      {
+        digitalWrite(motorPins[i], LOW);  
+      }   
     }
     if(state != 'S')
     {
