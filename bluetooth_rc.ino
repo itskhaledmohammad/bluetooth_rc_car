@@ -16,7 +16,7 @@ void backward()
 }
 void left()
 {
-  digitalWrite(motorPins[0], HIGH);
+  digitalWrite(motorPins[0], LOW);
   digitalWrite(motorPins[1], LOW);
   digitalWrite(motorPins[2], HIGH);
   digitalWrite(motorPins[3], LOW);
@@ -25,7 +25,7 @@ void right()
 {
   digitalWrite(motorPins[0], HIGH);
   digitalWrite(motorPins[1], LOW);
-  digitalWrite(motorPins[2], HIGH);
+  digitalWrite(motorPins[2], LOW);
   digitalWrite(motorPins[3], LOW);
 }
 void headLight(int switchState)
